@@ -1,25 +1,25 @@
 import streamlit as st
 import pandas as pd
 
-
-def recommend_shoulder_straps(height, tshirt_size):
+# Function to recommend shoulder straps size based on chest circumference
+def recommend_shoulder_straps(height, chest_circumference):
     if height < 180:
-        if tshirt_size == "XS":
+        if 74 <= chest_circumference < 86:
             return "Size 1"
-        elif tshirt_size == "S":
+        elif 86 <= chest_circumference < 92:
             return "Size 2"
-        elif tshirt_size == "M":
+        elif 92 <= chest_circumference < 103:
             return "Size 3"
-        elif tshirt_size in ["L", "XL", "XXL"]:
+        elif 103 <= chest_circumference < 119:
             return "Size 4"
     else:
-        if tshirt_size in ["M", "L"]:
+        if 103 <= chest_circumference < 119:
             return "Size 5"
-        elif tshirt_size in ["XL", "XXL"]:
+        elif chest_circumference >= 123:
             return "Size 6"
     return "Size not found"
 
-
+# Function to recommend band size based on height
 def recommend_band_size(height):
     if height <= 160:
         return "Size 1"
@@ -35,7 +35,7 @@ def recommend_band_size(height):
         return "Size 6"
     return "Size not found"
 
-
+# Function to recommend thigh sleeves size based on thigh circumference
 def recommend_thigh_sleeves(circumference):
     if 44 <= circumference <= 60:
         return "Size 1"
@@ -47,17 +47,15 @@ def recommend_thigh_sleeves(circumference):
 
 
 st.title("HeroWear Apex2 Sizing Guide")
-
 st.header("Input your measurements")
 
 
 height = st.number_input("Enter your height (in cm):", min_value=100, max_value=250, step=1)
-tshirt_size = st.selectbox("Select your T-shirt size:", ["XS", "S", "M", "L", "XL", "XXL"])
-thigh_circumference = st.number_input("Enter your thigh circumference (in cm):", min_value=40, max_value=100, step=1)
-
+chest_circumference = st.number_input("Enter your chest circumference (in cm):", min_value=74, max_value=150, step=1)
+thigh_circumference = st.number_input("Enter your thigh circumference (in cm):", min_value=44, max_value=100, step=1)
 
 if st.button("Get Recommendations"):
-    shoulder_straps = recommend_shoulder_straps(height, tshirt_size)
+    shoulder_straps = recommend_shoulder_straps(height, chest_circumference)
     band_size = recommend_band_size(height)
     thigh_sleeves = recommend_thigh_sleeves(thigh_circumference)
 
@@ -69,12 +67,12 @@ if st.button("Get Recommendations"):
 
 shoulder_straps_data = {
     "Height": ["Under 6' Tall", "6' Tall and Up"],
-    "Size 1": ["30\" - 34\"<br>(T-shirt Size: XS)", ""],
-    "Size 2": ["34\" - 38\"<br>(T-shirt Size: S)", ""],
-    "Size 3": ["38\" - 42\"<br>(T-shirt Size: M)", ""],
-    "Size 4": ["42\" - 47\"<br>(T-shirt Size: L - XXL)", ""],
-    "Size 5": ["", "42\" - 47\"<br>(T-shirt Size: M - L)"],
-    "Size 6": ["", "48\" - 54\"+<br>(T-shirt Size: XL - XXL)"]
+    "Size 1": ["30\" - 34\"<br>(74 cm - 86 cm)", ""],
+    "Size 2": ["34\" - 38\"<br>(86 cm - 92 cm)", ""],
+    "Size 3": ["38\" - 42\"<br>(92 cm - 103 cm)", ""],
+    "Size 4": ["42\" - 47\"<br>(103 cm - 119 cm)", ""],
+    "Size 5": ["", "42\" - 47\"<br>(103 cm - 119 cm)"],
+    "Size 6": ["", "48\" - 54\"+<br>(123 cm - 134 cm)"]
 }
 
 thigh_sleeves_data = {
