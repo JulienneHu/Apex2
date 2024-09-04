@@ -1,13 +1,5 @@
 import streamlit as st
 
-# Set page configuration
-st.set_page_config(
-    page_title="HeroWear Apex2 User Guide",  # Set the title of the page
-    page_icon="🦸‍♂️",  # You can use an emoji as an icon or a link to an image
-    layout="wide",  # 'centered' or 'wide'
-    initial_sidebar_state="expanded"  # 'expanded' or 'collapsed'
-)
-
 st.title("Welcome to the HeroWear Apex2 Lab Manual")
 
 
