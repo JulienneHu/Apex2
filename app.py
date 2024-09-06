@@ -15,7 +15,7 @@ st.sidebar.title("MENU")
 # Main pages
 main_page = st.sidebar.selectbox(
     "DEVICES", 
-    ["Apex2", "Xsens"]
+    ["Apex2", "Xsens", "Noraxon"]
 )
 
 if main_page == "Apex2":
@@ -26,7 +26,12 @@ if main_page == "Apex2":
 elif main_page == "Xsens":
     xsens_page = st.sidebar.radio(
         "Xsens Pages",
-        ["XSENS", "ABOUT_XSENS"]
+        ["XSENS", "ABOUT_XSENS", "SOFTWARE_SETUP", "CENSOR_ASSEMBLY"]
+    )
+elif main_page == "Noraxon":
+    noraxon_page = st.sidebar.radio(
+        "Noraxon Pages",
+        ["NORAXON", "ABOUT_NORAXON", "SOFTWARE_SETUP", "CENSOR_ASSEMBLY"]
     )
 
 # Display content in the main area based on selection
@@ -63,3 +68,35 @@ elif main_page == "Xsens":
         spec = importlib.util.spec_from_file_location("ABOUT_XSENS", "pages/Xsens/ABOUT_XSENS.py")
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
+    elif xsens_page == "SOFTWARE_SETUP":
+        # Load 'SOFTWARE_SETUP.py' content
+        spec = importlib.util.spec_from_file_location("SOFTWARE_SETUP", "pages/Xsens/SOFTWARE_SETUP.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+    elif xsens_page == "CENSOR_ASSEMBLY":
+        # Load 'STRAP_AND_CENSOR_ASSEMBLY.py' content
+        spec = importlib.util.spec_from_file_location("STRAP_AND_CENSOR_ASSEMBLY", "pages/Xsens/CENSOR_ASSEMBLY.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+elif main_page == "Noraxon":
+    if noraxon_page == "NORAXON":
+        # Load 'NORAXON.py' content
+        spec = importlib.util.spec_from_file_location("NORAXON", "pages/Noraxon/NORAXON.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+    elif noraxon_page == "ABOUT_NORAXON":   
+        # Load 'ABOUT_NORAXON.py' content
+        spec = importlib.util.spec_from_file_location("ABOUT_NORAXON", "pages/Noraxon/ABOUT_NORAXON.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+    elif noraxon_page == "SOFTWARE_SETUP":
+        # Load 'SOFTWARE_SETUP.py' content
+        spec = importlib.util.spec_from_file_location("SOFTWARE_SETUP", "pages/Noraxon/SOFTWARE_SETUP.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+    elif noraxon_page == "CENSOR_ASSEMBLY":
+        # Load 'CENSOR_ASSEMBLY.py' content
+        spec = importlib.util.spec_from_file_location("CENSOR_ASSEMBLY", "pages/Noraxon/CENSOR_ASSEMBLY.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        
