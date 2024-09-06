@@ -1,5 +1,5 @@
 import streamlit as st
-st.title('Censor Placement with Strap')
+st.title('Censor Assembly with Strap')
 
 st.subheader("Head")
 st.image('assests/Xsens/head.png', caption='Head', width=600)
