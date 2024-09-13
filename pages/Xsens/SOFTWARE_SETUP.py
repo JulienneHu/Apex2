@@ -18,8 +18,13 @@ st.image('assests/Xsens/input_dimensions.png', caption='Step 4', width=400)
 st.markdown("""Change the Body Height and Foot or Shoe length based on dimensions of each participant""")
 
 st.subheader("Step5: Change Suit Configuration")
-st.image('assests/Xsens/suit_configuration.png', caption='Step 5', width=400)
 st.markdown("""After dimensions are inputted, change the suit configuration to full body, then click OK""")
+st.image('assests/Xsens/suit_configuration.png', caption='Body Dimensions', width=400)
+
+st.markdown("""Edit live configurations to be exactly as specified.​""")
+st.image('assests/Xsens/start.png', caption='sync-start', width=400)
+st.image('assests/Xsens/stop.png', caption='sync-stop', width=400)
+st.markdown("""**skip factors and skip first were tinkered with to see which one would successfully record.""")
 
 st.subheader("Step6: Click Calibrate At the Left Menu")
 st.image('assests/Xsens/click_calibrate.png', caption='Step 6', width=400)
