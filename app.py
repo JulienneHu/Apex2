@@ -15,7 +15,7 @@ st.sidebar.title("MENU")
 # Main pages
 main_page = st.sidebar.selectbox(
     "DEVICES", 
-    ["Apex2", "Xsens", "Noraxon"]
+    ["Apex2", "Xsens", "Noraxon", "ActiHeart"]
 )
 
 if main_page == "Apex2":
@@ -32,6 +32,11 @@ elif main_page == "Noraxon":
     noraxon_page = st.sidebar.radio(
         "Noraxon Pages",
         ["NORAXON", "ABOUT_NORAXON", "SOFTWARE_SETUP", "CENSOR_ASSEMBLY"]
+    )
+elif main_page == "ActiHeart":
+    actiheart_page = st.sidebar.radio(
+        "ActiHeart Pages",
+        ["ACTIHEART", "ABOUT_ACTIHEART", "SOFTWARE", "HARDWARE"]
     )
 
 # Display content in the main area based on selection
@@ -99,4 +104,24 @@ elif main_page == "Noraxon":
         spec = importlib.util.spec_from_file_location("CENSOR_ASSEMBLY", "pages/Noraxon/CENSOR_ASSEMBLY.py")
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
-        
+elif main_page == "ActiHeart":
+    if actiheart_page == "ACTIHEART":
+        # Load 'ACTIHEART.py' content
+        spec = importlib.util.spec_from_file_location("ACTIHEART", "pages/ActiHeart/ACTIHEART.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+    elif actiheart_page == "ABOUT_ACTIHEART":
+        # Load 'ABOUT_ACTIHEART.py' content
+        spec = importlib.util.spec_from_file_location("ABOUT_ACTIHEART", "pages/ActiHeart/ABOUT_ACTIHEART.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+    elif actiheart_page == "SOFTWARE":
+        # Load 'SOFTWARE.py' content
+        spec = importlib.util.spec_from_file_location("SOFTWARE", "pages/ActiHeart/SOFTWARE.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+    elif actiheart_page == "HARDWARE":
+        # Load 'HARDWARE.py' content
+        spec = importlib.util.spec_from_file_location("HARDWARE", "pages/ActiHeart/HARDWARE.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)    
