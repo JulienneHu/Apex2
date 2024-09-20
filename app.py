@@ -107,21 +107,21 @@ elif main_page == "Noraxon":
 elif main_page == "ActiHeart":
     if actiheart_page == "ACTIHEART":
         # Load 'ACTIHEART.py' content
-        spec = importlib.util.spec_from_file_location("ACTIHEART", "pages/ActiHeart/ACTIHEART.py")
+        spec = importlib.util.spec_from_file_location("ACTIHEART", "pages/Actiheart/ACTIHEART.py")
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
     elif actiheart_page == "ABOUT_ACTIHEART":
         # Load 'ABOUT_ACTIHEART.py' content
-        spec = importlib.util.spec_from_file_location("ABOUT_ACTIHEART", "pages/ActiHeart/ABOUT_ACTIHEART.py")
+        spec = importlib.util.spec_from_file_location("ABOUT_ACTIHEART", "pages/Actiheart/ABOUT_ACTIHEART.py")
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
     elif actiheart_page == "SOFTWARE":
         # Load 'SOFTWARE.py' content
-        spec = importlib.util.spec_from_file_location("SOFTWARE", "pages/ActiHeart/SOFTWARE.py")
+        spec = importlib.util.spec_from_file_location("SOFTWARE", "pages/Actiheart/SOFTWARE.py")
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
     elif actiheart_page == "HARDWARE":
         # Load 'HARDWARE.py' content
-        spec = importlib.util.spec_from_file_location("HARDWARE", "pages/ActiHeart/HARDWARE.py")
+        spec = importlib.util.spec_from_file_location("HARDWARE", "pages/Actiheart/HARDWARE.py")
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)    
