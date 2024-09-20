@@ -3,7 +3,7 @@ import importlib.util
 
 # Set page config once at the start of app.py
 st.set_page_config(
-    page_title="Devices Guide",
+    page_title="Exoskeleton Devices",
     page_icon="🦸‍♂️",
     layout="wide",
     initial_sidebar_state="expanded"
