@@ -15,7 +15,7 @@ st.sidebar.title("MENU")
 # Main pages
 main_page = st.sidebar.selectbox(
     "DEVICES", 
-    ["Apex2", "Xsens", "Noraxon", "ActiHeart"]
+    ["Apex2", "Xsens", "Noraxon", "ActiHeart", "Dynamometer"]
 )
 
 if main_page == "Apex2":
@@ -37,6 +37,11 @@ elif main_page == "ActiHeart":
     actiheart_page = st.sidebar.radio(
         "ActiHeart Pages",
         ["ACTIHEART", "ABOUT_ACTIHEART", "SOFTWARE", "HARDWARE"]
+    )
+elif main_page == "Dynamometer":
+    dynamometer_page = st.sidebar.radio(
+        "Dynamometer Pages",
+        ["DYNAMOMETER", "ABOUT_DYNAMOMETER", "HARDWARE"]
     )
 
 # Display content in the main area based on selection
@@ -125,3 +130,19 @@ elif main_page == "ActiHeart":
         spec = importlib.util.spec_from_file_location("HARDWARE", "pages/Actiheart/HARDWARE.py")
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)    
+elif main_page == "Dynamometer":
+    if dynamometer_page == "DYNAMOMETER":
+        # Load 'DYNAMOMETER.py' content
+        spec = importlib.util.spec_from_file_location("DYNAMOMETER", "pages/Dynamometer/DYNAMOMETER.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+    elif dynamometer_page == "ABOUT_DYNAMOMETER":
+        # Load 'ABOUT_DYNAMOMETER.py' content
+        spec = importlib.util.spec_from_file_location("ABOUT_DYNAMOMETER", "pages/Dynamometer/ABOUT_DYNAMOMETER.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+    elif dynamometer_page == "HARDWARE":
+        # Load 'HARDWARE.py' content
+        spec = importlib.util.spec_from_file_location("HARDWARE", "pages/Dynamometer/HARDWARE.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
